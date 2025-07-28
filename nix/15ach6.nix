@@ -25,6 +25,11 @@
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
 
+  boot.extraModprobeConfig = ''
+  options rtw89_pci disable_aspm_l1=y disable_aspm_l1ss=y
+  options rtw89_core disable_ps_mode=y
+  '';
+
   # Enable networking
   networking.networkmanager.enable = true;
 
@@ -50,6 +55,8 @@
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
   services.xserver.enable = false;
+
+  services.solaar.enable = true;
 
   # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm.enable = true;
@@ -108,6 +115,7 @@
   ];
 
   programs.fish.enable = true;
+  programs.steam.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

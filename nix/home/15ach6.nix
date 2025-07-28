@@ -1,5 +1,9 @@
-{
+{ config, pkgs, ... }: {
+
   imports = [./common.nix];
+
+
+  home.packages = [ pkgs.vice pkgs.goattracker pkgs.furnace pkgs.webcamoid pkgs.gimp pkgs.jamesdsp pkgs.openmw ]; 
 
   programs.lan-mouse = {
     enable = true;

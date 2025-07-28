@@ -49,6 +49,11 @@
   # You can disable this if you're only using the Wayland session.
   services.xserver.enable = false;
 
+  musnix.enable = true;
+  musnix.rtcqs.enable = true;
+
+  services.solaar.enable = true;
+
   # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
@@ -102,7 +107,7 @@
   users.users.idf = {
     isNormalUser = true;
     description = "idf";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "audio" "networkmanager" "wheel" ];
   };
 
   # Allow unfree packages

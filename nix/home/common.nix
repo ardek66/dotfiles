@@ -11,8 +11,9 @@
     pkgs.wezterm 
     pkgs.keepassxc 
     pkgs.telegram-desktop
+    pkgs.discord
     pkgs.meld
-    (pkgs.nerdfonts.override { fonts = [ "GeistMono" ]; })
+    pkgs.nerd-fonts.geist-mono
   ];
 
   home.file = {

@@ -14,6 +14,7 @@
     pkgs.discord
     pkgs.meld
     pkgs.nerd-fonts.geist-mono
+    pkgs.klassy-qt6
   ];
 
   home.file = {

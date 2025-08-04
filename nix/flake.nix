@@ -14,7 +14,7 @@
     lan-mouse.url = "github:feschber/lan-mouse";
     lan-mouse.inputs.nixpkgs.follows = "nixpkgs";
 
-    shadowrz.url = "github:ShadowRZ/nur-packages/8522a81";
+    shadowrz.url = "github:ShadowRZ/nur-packages";
     shadowrz.inputs.nixpkgs.follows = "nixpkgs";
 
     firefox-addons.url = "sourcehut:~rycee/nur-expressions?dir=pkgs/firefox-addons";
@@ -28,7 +28,6 @@
     nixosConfigurations = {
       lain-iwakura = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-
         modules = [
 	        nixos-hardware.nixosModules.lenovo-thinkpad-t430
           inputs.musnix.nixosModules.musnix
@@ -36,6 +35,8 @@
           ./t430.nix
           home-manager.nixosModules.home-manager
           {
+            nixpkgs.overlays = [ shadowrz.overlays.default ]; 
+
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
 	          home-manager.users.idf = ./home/t430.nix;
@@ -53,6 +54,8 @@
          ./15ach6.nix
          home-manager.nixosModules.home-manager
          {
+           nixpkgs.overlays = [ shadowrz.overlays.default ]; 
+
            home-manager.useGlobalPkgs = true;
            home-manager.useUserPackages = true;
            home-manager.users.idf = ./home/15ach6.nix;

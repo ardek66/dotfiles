@@ -35,7 +35,7 @@
     floorp.enable = true;
     floorp.profiles.hm-profile = {
       isDefault = true;
-      extensions = with firefox-addons.packages.${pkgs.system}; [ plasma-integration ublock-origin tree-style-tab ];
+      extensions.packages = with firefox-addons.packages.${pkgs.system}; [ plasma-integration ublock-origin tree-style-tab ];
     };
 
     lf.enable = true;

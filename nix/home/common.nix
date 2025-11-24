@@ -39,7 +39,31 @@
       extensions.packages = with firefox-addons.packages.${pkgs.system}; [ plasma-integration ublock-origin tree-style-tab ];
     };
 
-    lf.enable = true;
+    xplr.enable = true;
+    xplr.plugins = {
+      fennel = "${pkgs.fennel}/share/lua/5.2/?.lua";
+
+      dysh-style = pkgs.fetchFromGitHub {
+        owner = "dy-sh";
+        repo = "dysh-style.xplr";
+        rev = "12dab25f9410e1c67f09f60c0af030ea5210ea0d";
+        sha256 = "sha256-Neh9Rbr6kFqEFQsdOQUutqZeVTJ5ELP7DzY7f4GXyZk=";
+      };
+
+      web-devicons = pkgs.fetchFromGitLab {
+        owner = "hartan";
+        repo = "web-devicons.xplr";
+        rev = "9183a0cc146a29e4f25749463d293be920c6691e";
+        sha256 = "sha256-qzibWL5tOWmXAMaxhUO5jFUdD6k7wsG3Mdhz/elngKQ=";
+      };
+    };
+
+    xplr.extraConfig = ''
+      require("dysh-style").setup()
+      require("web-devicons").setup()
+      require("fennel").install()
+    '';
+
     mpv.enable = true;
     lan-mouse.enable = true;
     keychain.enable = true;

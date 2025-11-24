@@ -26,7 +26,7 @@
   hardware.bluetooth.powerOnBoot = true;
 
   boot.extraModprobeConfig = ''
-  options rtw89_pci disable_aspm_l1=y disable_aspm_l1ss=y
+  options rtw89_pci disable_aspm_l1=y disable_aspm_l1ss=y disable_clkreq=y
   options rtw89_core disable_ps_mode=y
   '';
 
@@ -77,6 +77,7 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
   hardware.sane.enable = true;
+  
   hardware.sane.extraBackends = [ pkgs.hplipWithPlugin ];
 
   services.avahi.enable = true;
@@ -121,6 +122,10 @@
 
   programs.fish.enable = true;
   programs.steam.enable = true;
+  programs.gamescope = {
+    enable = true;
+    capSysNice = false;
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
